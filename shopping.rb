@@ -21,7 +21,7 @@ class Shoppingcart
 		#There is no  base cost
 		ticket_price = @price
 		@items.each do |item|
-			ticket_price += item.item_price
+			ticket_price += item.price
 		end
 		ticket_price
 	end
@@ -49,7 +49,7 @@ class Item
 	end
 
 #We have to return @price as it will be the variable that will be read
-	def item_price
+	def price
 		@price
 	end
 
