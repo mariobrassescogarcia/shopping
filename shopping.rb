@@ -21,7 +21,7 @@ class Shoppingcart
 	#There is no shipping cost or base cost
 		cart_price = @shipping_costs
 		@items.each do |item|
-		cart_price += item.price
+			cart_price += item.price
 		end
 		cart_price
 	end
@@ -107,7 +107,7 @@ mario_cart.add_item(banana)
 mario_cart.add_item(vacuum_cleaner)
 mario_cart.add_item(anchovies)
 
-puts "The final price of your shopping cart is #{mario_cart.cart_price}"
+puts "The final price of your shopping cart is #{mario_cart.cart_price
 
 
 
