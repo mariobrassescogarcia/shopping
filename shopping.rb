@@ -29,14 +29,40 @@ class Shoppingcart
 end
 
 
+#Create the item class with these functions:
+	#Construct a new item category
+	#Get the final price of the item (depending on the category)
+
+
 class Item
-	def initialize(name, price)
+	def initialize(name, price, discount)
 		@name = name
 		@price = price
+		@discount = 0
 	end
 	def price
 
 
 
 	end
-End
+end
+
+
+#Create the subcategories for the items that have special properties: fruits and warehouse
+
+
+class Houseware < Item
+	def price
+	end
+end
+
+class Fruit < Item
+	def price
+	end
+end
+
+
+
+
+
+
