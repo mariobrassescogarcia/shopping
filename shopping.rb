@@ -21,7 +21,7 @@ class Shoppingcart
 	#There is no shipping cost or base cost
 		cart_price = @shipping_costs
 		@items.each do |item|
-		cart_price =+ item.price
+		cart_price += item.price
 		end
 		cart_price
 	end
@@ -48,7 +48,7 @@ class Item
 	end
 
 	def price
-		price = Item.price
+		price = price
 	end
 
 
