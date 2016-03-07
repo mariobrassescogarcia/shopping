@@ -61,15 +61,15 @@ end
 
 #We define for this subcategories a method to define the discount for the item.
 class Houseware < Item
-    attr_reader :name, :price
 	def discounted_price
 		if price >= 100
 			discount = 0,05
-			price = price X (1 - discount)
+			price = price * (1 - discount)
 		else
 			price = price
 		end
 	@price = discounted_price
+	discounted_price
 	end
 end
 
@@ -77,7 +77,6 @@ end
 
 
 class Fruit < Item
-	attr_reader :name, :price
 	def discounted_price
 	session_date = Time.new
 	session_date.wday
@@ -88,6 +87,7 @@ class Fruit < Item
 			price = price	
 		end 
 	@price = discounted_price
+	discounted_price
 	end
 
 end
