@@ -60,7 +60,12 @@ end
 
 
 class Houseware < Item
-	def price
+	def discount
+		if price >= 100
+			@discount = 0,05
+		else
+			@discount = 0
+		end
 	end
 end
 
@@ -68,17 +73,14 @@ end
 
 
 class Fruit < Item
-	def price
+	def discount
 	session_date = Time.new
 	session_date.wday
 	if session_date.wday == 0 || session_date.wday == 6
-		@discount = 0,05
+		@discount = 0,1
 	else
-		@discount = 0
-	 	
+		@discount = 0	
 	end 
-
-
 	end
 end
 
