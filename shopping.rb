@@ -68,6 +68,7 @@ class Houseware < Item
 		else
 			price = price
 		end
+	discount
 	end
 end
 
@@ -85,6 +86,7 @@ class Fruit < Item
 		else
 			price = price	
 		end 
+	discount
 	end
 end
 
@@ -107,7 +109,7 @@ mario_cart.add_item(banana)
 mario_cart.add_item(vacuum_cleaner)
 mario_cart.add_item(anchovies)
 
-puts "The final price of your shopping cart is #{mario_cart.cart_price
+puts "The final price of your shopping cart is #{mario_cart.cart_price}"
 
 
 
