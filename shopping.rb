@@ -39,17 +39,14 @@ end
 	#Housewares have no discount unless their unit price is more than 100€. In that case they have a 5% discount.
 
 
-
-
-
 class Item
-	def initialize(name, price, discount)
+	def initialize(name, price)
 		@name = name
 		@price = price
-		@discount = 0
 	end
+
 	def price
-		final_price = @price * (1 - @discount)
+		price = Item.price
 	end
 
 
@@ -63,9 +60,10 @@ end
 class Houseware < Item
 	def discount
 		if price >= 100
-			@discount = 0,05
+			discount = 0,05
+			price = price X (1 - discount)
 		else
-			@discount = 0
+			price = price
 		end
 	end
 end
@@ -77,11 +75,12 @@ class Fruit < Item
 	def discount
 	session_date = Time.new
 	session_date.wday
-	if session_date.wday == 0 || session_date.wday == 6
-		@discount = 0,1
-	else
-		@discount = 0	
-	end 
+		if session_date.wday == 0 || session_date.wday == 6
+			discount = 0,1
+			price = price * (1 - discount)
+		else
+			price = price	
+		end 
 	end
 end
 
@@ -95,6 +94,14 @@ orange_juice = Item.new("Orange juice", 10)
 rice = Item.new("Rice", 1)
 vacuum_cleaner = Houseware.new("Vacuum Cleaner", 150)
 anchovies = Item.new("Anchovies", 2)
+
+
+#Generate shopping carts:
+
+
+
+
+
 
 
 
