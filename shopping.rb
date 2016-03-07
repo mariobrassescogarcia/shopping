@@ -49,16 +49,17 @@ class Item
 		@discount = 0
 	end
 	def price
-
-
-
+		final_price = @price * (1 - @discount)
 	end
+
+
 end
 
 
 #Create the subcategories for the items that have special properties: fruits and warehouse
 
 
+#We define for this subcategories a method to define the discount for the item.
 class Houseware < Item
 	def discount
 		if price >= 100
@@ -83,6 +84,18 @@ class Fruit < Item
 	end 
 	end
 end
+
+
+
+#Items stock in the shopp:
+
+
+banana = Fruit.new("Banana", 10)
+orange_juice = Item.new("Orange juice", 10)
+rice = Item.new("Rice", 1)
+vacuum_cleaner = Houseware.new("Vacuum Cleaner", 150)
+anchovies = Item.new("Anchovies", 2)
+
 
 
 
