@@ -21,7 +21,7 @@ class Shoppingcart
 		#There is no  base cost
 		ticket_price = @price
 		@items.each do |item|
-			ticket_price += item.price
+			ticket_price += item.item_price
 		end
 		ticket_price
 	end
@@ -41,15 +41,16 @@ end
 
 
 class Item
-	attr_reader :name, :price
+	attr_reader :name
+#We don't need the attr_reader for price as we will have a method that will return the price value
 	def initialize(name, price)
 		@name = name
 		@price = price
 	end
 
+#We have to return @price as it will be the variable that will be read
 	def item_price
-		item_price = @price
-		item_price
+		@price
 	end
 
 
@@ -61,15 +62,16 @@ end
 
 #We define for this subcategories a method to define the discount for the item.
 class Houseware < Item
-	def discounted_price
-		if price >= 100
-			discount = 0,05
-			price = price * (1 - discount)
+	attr_reader :name
+	
+	def price
+		#We have to assign the price to the parameter @price for the Item class. That's why we'll use @price in the following statements
+		if  @price >= 100
+			price = @price * (1 - 0.05)
 		else
-			price = price
+			price = @price
 		end
-	@price = discounted_price
-	discounted_price
+		price
 	end
 end
 
@@ -77,24 +79,25 @@ end
 
 
 class Fruit < Item
-	def discounted_price
+	attr_reader :name
+	
+	def price
 	session_date = Time.new
 	session_date.wday
 		if session_date.wday == 0 || session_date.wday == 6
-			discount = 0,1
-			price = price * (1 - discount)
+			#Again we will use @price to assign the value to the parameter in the Item class
+			price = @price * (1 - 0.1)
 		else
-			price = price	
+			price = @price	
 		end 
-	@price = discounted_price
-	discounted_price
+		price
 	end
 
 end
 
 
 
-#Items stock in the shopp:
+#Items stock in the shop:
 
 
 banana = Fruit.new("Banana", 10)
