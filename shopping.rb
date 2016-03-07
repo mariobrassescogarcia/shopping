@@ -1,5 +1,4 @@
 
-
 #Create the shopping cart class with these functions:
 	#Construct a new shopping cart
 	#Add new item
@@ -34,6 +33,15 @@ end
 	#Get the final price of the item (depending on the category)
 
 
+#Rules for the items:
+	#By default, items will have no discount
+	#Fruits have no discount during weekdays but on weekends they have a 10% discount
+	#Housewares have no discount unless their unit price is more than 100€. In that case they have a 5% discount.
+
+
+
+
+
 class Item
 	def initialize(name, price, discount)
 		@name = name
@@ -56,8 +64,21 @@ class Houseware < Item
 	end
 end
 
+
+
+
 class Fruit < Item
 	def price
+	session_date = Time.new
+	session_date.wday
+	if session_date.wday == 0 || session_date.wday == 6
+		@discount = 0,05
+	else
+		@discount = 0
+	 	
+	end 
+
+
 	end
 end
 
