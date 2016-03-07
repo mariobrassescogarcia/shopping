@@ -47,9 +47,9 @@ class Item
 		@price = price
 	end
 
-	def price
-		price = price
-		price
+	def item_price
+		item_price = @price
+		item_price
 	end
 
 
