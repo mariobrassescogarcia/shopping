@@ -21,9 +21,13 @@ class Shoppingcart
 		#There is no  base cost
 		ticket_price = @price
 		@items.each do |item|
+		if @items.count > 5
+			ticket_price += item.price * 0.9
+		else
 			ticket_price += item.price
 		end
-		ticket_price
+		end
+		ticket_price.round(2)
 	end
 
 end
@@ -112,6 +116,9 @@ anchovies = Item.new("Anchovies", 2)
 mario_cart = Shoppingcart.new
 mario_cart.add_item(banana)
 mario_cart.add_item(vacuum_cleaner)
+mario_cart.add_item(anchovies)
+mario_cart.add_item(anchovies)
+mario_cart.add_item(anchovies)
 mario_cart.add_item(anchovies)
 
 puts "The final price of your shopping cart is #{mario_cart.ticket_price}"
