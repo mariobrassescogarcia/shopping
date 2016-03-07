@@ -13,7 +13,7 @@ class Shoppingcart
 		@shipping_costs = 0
 	end
 	#Function to add items
-	def add_item
+	def add_item(item)
 		@items.push(item)
 	end
 	#Function to calculate the total price
@@ -41,6 +41,7 @@ end
 
 
 class Item
+	attr_reader :name, :price
 	def initialize(name, price)
 		@name = name
 		@price = price
@@ -59,6 +60,7 @@ end
 
 #We define for this subcategories a method to define the discount for the item.
 class Houseware < Item
+    attr_reader :name, :price
 	def discount
 		if price >= 100
 			discount = 0,05
@@ -73,6 +75,7 @@ end
 
 
 class Fruit < Item
+	attr_reader :name, :price
 	def discount
 	session_date = Time.new
 	session_date.wday
