@@ -88,6 +88,7 @@ class Fruit < Item
 		end 
 	@price = discounted_price
 	end
+
 end
 
 
