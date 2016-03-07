@@ -23,6 +23,7 @@ class Shoppingcart
 		@items.each do |item|
 		cart_price =+ item.price
 		end
+		cart_price
 	end
 
 end
@@ -98,8 +99,12 @@ anchovies = Item.new("Anchovies", 2)
 
 #Generate shopping carts:
 
+mario_cart = Shoppingcart.new
+mario_cart.add_item(banana)
+mario_cart.add_item(vacuum_cleaner)
+mario_cart.add_item(anchovies)
 
-
+puts "The final price of your shopping cart is #{mario_cart.cart_price}"
 
 
 
