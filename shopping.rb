@@ -10,20 +10,20 @@ class Shoppingcart
 	#Construct a new shopping cart
 	def initialize
 		@items = []
-		@shipping_costs = 0
+		@price = 0
 	end
 	#Function to add items
 	def add_item(item)
 		@items.push(item)
 	end
 	#Function to calculate the total price
-	def cart_price
-	#There is no shipping cost or base cost
-		cart_price = @shipping_costs
+	def ticket_price
+		#There is no  base cost
+		ticket_price = @price
 		@items.each do |item|
-			cart_price += item.price
+			ticket_price += item.price
 		end
-		cart_price
+		ticket_price
 	end
 
 end
@@ -49,6 +49,7 @@ class Item
 
 	def price
 		price = price
+		price
 	end
 
 
@@ -110,7 +111,7 @@ mario_cart.add_item(banana)
 mario_cart.add_item(vacuum_cleaner)
 mario_cart.add_item(anchovies)
 
-puts "The final price of your shopping cart is #{mario_cart.cart_price}"
+puts "The final price of your shopping cart is #{mario_cart.ticket_price}"
 
 
 
